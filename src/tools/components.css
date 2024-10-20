@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Noto";
+    /* font-style: normal;
+    font-weight: 400;
+    font-display: swap; */
+    src: url(./fonts/NotoSansMono.ttf) format("truetype");
+  }
+}
+
+@layer components {
+  .page-bg {
+    @apply bg-gradient-to-b from-orange-100 to-orange-800 min-h-screen
+    dark:from-orange-800 dark:to-orange-400;
+  }
+
+  .page-bg-overlay {
+    @apply bg-gradient-to-b from-orange-100/90 to-orange-800/90 min-h-screen
+    dark:from-orange-800/90 dark:to-orange-400/90;
+  }
+
+  .body {
+    @apply page-bg font-noto antialiased  font-semibold tracking-wide;
+  }
+  .body-admin {
+    @apply body grid grid-cols-12 gap-3;
+  }
+  .base-container {
+    @apply md:container mx-auto;
+  }
+  .side-base-container {
+    @apply base-container col-span-10;
+  }
+
+  .title {
+    @apply p-6 text-center text-4xl;
+  }
+
+  .description {
+    @apply p-2 text-center text-2xl;
+  }
+
+  .description-error {
+    @apply description text-red-700;
+  }
+
+  .nav-grid {
+    @apply rounded-lg p-4 mb-1 grid grid-cols-6 gap-2 text-center shadow-[inset_0_0_4px_0] shadow-yellow-500;
+  }
+
+  .nav-btn {
+    @apply rounded bg-yellow-400 hover:bg-yellow-500 p-1 text-black transition ease-in-out duration-300;
+  }
+
+  .side-nav-grid {
+    @apply rounded-lg p-4 m-1 col-span-2 flex flex-col text-center shadow-bi shadow-yellow-500;
+  }
+  /* .side-nav-grid {
+    @apply rounded-lg p-4 m-1 col-span-2 grid grid-cols-1 gap-2 text-center shadow-[inset_0_0_4px_0] shadow-yellow-500;
+  } */
+
+  .side-nav-btn {
+    @apply nav-btn max-h-8 mb-2;
+  }
+
+  /* .nav-btn {
+    @apply rounded bg-yellow-400 hover:bg-yellow-500 p-1 text-black transition ease-in-out duration-300;
+  } */
+
+  .box-grid {
+    @apply grid md:grid-cols-3 gap-2 p-2;
+  }
+  .box {
+    @apply rounded-sm border-2 border-yellow-400 p-2 hover:border-yellow-600 bg-white bg-opacity-10 text-black transition ease-in-out duration-300;
+  }
+  .box-title {
+    @apply p-2 text-center text-2xl;
+  }
+  .box-details {
+    @apply grid grid-cols-2 gap-1;
+  }
+  .box-line {
+    @apply p-1 leading-3;
+  }
+  .box-line-clamp {
+    @apply min-h-14 p-1 leading-6 line-clamp-2;
+  }
+  .box-nav {
+    @apply grid grid-cols-3 gap-2 text-center;
+  }
+
+  .pag-grid {
+    @apply flex flex-row justify-end p-2;
+  }
+  .pag-btn {
+    @apply text-center rounded-2xl bg-yellow-400 cursor-pointer hover:bg-yellow-500 p-1 m-1 size-8 text-black transition ease-in-out duration-300;
+  }
+
+  .search-grid {
+    @apply grid grid-cols-4 gap-2 p-2;
+  }
+  .search-quick {
+    @apply col-span-3 base-field;
+  }
+  .search-select {
+    @apply rounded-md p-2 text-orange-300  bg-transparent border-b-2 border-b-yellow-500;
+  }
+  .search-select-option {
+    @apply block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+
+  .card-grid {
+    @apply rounded p-2 bg-white bg-opacity-20 fixed top-full bottom-0 right-4 transition ease-in-out duration-700;
+  }
+  .card-active {
+    @apply top-auto bottom-4;
+  }
+  .card {
+    @apply rounded-sm border-2 border-yellow-400 p-2 hover:border-yellow-600 bg-white bg-opacity-10 text-black transition ease-in-out duration-300 relative;
+  }
+  .card-title {
+    @apply p-2 text-center text-xl;
+  }
+  .card-btn {
+    @apply text-center rounded-xl bg-yellow-400 cursor-pointer hover:bg-yellow-500 py-1 px-2 text-black transition ease-in-out duration-300 absolute -top-2 -right-2;
+  }
+
+  .side-card-grid {
+    @apply rounded p-2 page-bg-overlay fixed top-0 bottom-0 right-0 left-1/4 transition ease-in-out duration-700;
+  }
+  .side-card-nav {
+    @apply grid grid-cols-4 gap-2 p-4;
+  }
+  .side-card-btn {
+    @apply text-center text-xl rounded-e-lg border-b border-yellow-400 hover:border-yellow-900 p-1 text-black transition ease-in-out duration-300;
+  }
+  .side-card-btn.warning {
+    @apply text-rose-900 text-2xl font-bold;
+  }
+
+  .base-field {
+    @apply rounded-md p-2 text-orange-300 focus:ring-0 focus:outline-none focus:border-b-yellow-700 focus:bg-white focus:bg-opacity-10 placeholder-orange-300 bg-transparent border-b-2 border-b-yellow-500 transition ease-in-out duration-300;
+  }
+  .base-btn {
+    @apply rounded bg-yellow-400 hover:bg-yellow-500 p-1 text-black transition ease-in-out duration-300;
+  }
+
+  .form {
+    @apply w-4/5 m-auto p-4 grid grid-cols-1;
+  }
+  .form-field-box {
+    @apply p-1 text-center;
+  }
+  .form-field {
+    @apply w-4/5 base-field;
+  }
+  .form-field-error {
+    @apply p-2 text-center text-xl text-red-700;
+  }
+  .form-btn {
+    @apply base-btn w-32 m-auto text-lg;
+  }
+
+  .left-arrow {
+    @apply bg-[url('./public/images/arrow-left.svg')] bg-[length:16px_auto] bg-no-repeat bg-center;
+  }
+
+  .right-arrow {
+    @apply bg-[url('./public/images/arrow-right.svg')] bg-[length:16px_auto] bg-no-repeat bg-center;
+  }
+
+  .active {
+    @apply bg-yellow-500;
+  }
+
+  .fantom {
+    @apply opacity-0;
+  }
+}
