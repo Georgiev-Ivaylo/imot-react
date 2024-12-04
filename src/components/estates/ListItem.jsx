@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ListItem = ({ estate, fantomKey, isHidden, isUser }) => {
   return (
     <li className={`box overflow-hidden ${isHidden ? "fantom" : ""}`}>
-      <h4 className="box-title">{estate.price ?? "..."}</h4>
+      <h4 className="box-title">{estate.price_formatted ?? "..."}</h4>
       {estate.building_size && (
         <div>
           <div className="box-details">

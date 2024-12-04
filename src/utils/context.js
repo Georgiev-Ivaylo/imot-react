@@ -1,4 +1,5 @@
 import ErrorCards from "components/common/ErrorCards";
+import ToastCards from "components/common/ToastCards";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useStorage } from "utils/useStorage";
 
@@ -31,18 +32,22 @@ export const AuthProvider = ({ children, isUser }) => {
   );
 };
 
-export const ErrorContext = createContext();
-export const ErrorProvider = ({ children }) => {
-  const [error, setError] = useState(null);
+export const MessageContext = createContext();
+export const MessageProvider = ({ children }) => {
+  const [toasts, setToasts] = useState([]);
+  const [errors, setErrors] = useState([]);
   return (
-    <ErrorContext.Provider
+    <MessageContext.Provider
       value={{
-        error,
-        setError,
+        errors,
+        setErrors,
+        toasts,
+        setToasts,
       }}
     >
       {children}
-      <ErrorCards />
-    </ErrorContext.Provider>
+      {errors && <ErrorCards errors={errors} setErrors={setErrors} />}
+      <ToastCards />
+    </MessageContext.Provider>
   );
 };

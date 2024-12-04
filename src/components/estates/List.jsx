@@ -1,22 +1,17 @@
-import ListItem from "./ListItem";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../../utils/context";
-import { useHttpService } from "../../utils/HttpService";
+
 import ListSkeleton from "components/estates/ListSkeleton";
+import { AuthContext } from "utils/context";
+import { useHttpService } from "utils/HttpService";
+import ListItem from "components/estates/ListItem";
 
 const List = () => {
   const [searchParams] = useSearchParams();
   const { isUser, userToken, clientToken } = useContext(AuthContext);
 
   let url = `/estates?page=${searchParams.get("page")}`;
-  // let headers = {};
-
-  // if (isUser) {
-  //   url = "/admin" + url;
-  //   headers = { Authorization: `Bearer ${userToken}` };
-  // }
 
   if (searchParams.get("query")) {
     url += "&query=" + searchParams.get("query");

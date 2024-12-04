@@ -1,14 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-import { ErrorProvider } from "../../utils/context";
+import { MessageProvider } from "../../utils/context";
 
 const BaseLayout = () => {
   return (
-    <>
-      <ErrorProvider>
-        <Outlet />
-      </ErrorProvider>
-    </>
+    <MessageProvider>
+      <Outlet />
+    </MessageProvider>
   );
 };
 

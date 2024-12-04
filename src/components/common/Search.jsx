@@ -37,6 +37,14 @@ const Search = ({ placeholder }) => {
     setSearchParams(searchParams);
   }, [debouncedQuery]);
 
+  useEffect(() => {
+    if (searchParams.get("order_by")) {
+      return;
+    }
+
+    searchParams.set("order_by", "price");
+    setSearchParams(searchParams);
+  }, []);
   const handleOrder = (event) => {
     searchParams.set("page", 1);
     if (event.target.value) {

@@ -21,10 +21,12 @@ export const clientRoutes = {
     {
       path: "/estates",
       element: <Estates />,
-    },
-    {
-      path: "/estates/:estateId",
-      element: <Estate />,
+      children: [
+        {
+          path: "/estates/:estateId",
+          element: <Estate />,
+        },
+      ],
     },
   ],
 };
